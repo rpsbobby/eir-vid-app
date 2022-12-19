@@ -7,8 +7,9 @@ package main;
 
 /**
  *
- * @author fabio
+ * @author fabio Teixeira Ramos
  */
-public class State {
-    
+public enum State {
+    LOG_IN,
+    LOG_OUT
 }
