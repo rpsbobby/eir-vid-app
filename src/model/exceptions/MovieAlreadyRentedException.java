@@ -6,8 +6,17 @@ package model.exceptions;
 
 /**
  *
- * @author rober
+ * @author Robert Szlufik #2020358
+
  */
-public class MovieAlreadyRentedException {
-    
+
+public class MovieAlreadyRentedException extends Exception {
+    public MovieAlreadyRentedException(String message) {
+        super(message);
+    }
+
+    @Override
+    public String getMessage() {
+        return super.getMessage();
+    }
 }

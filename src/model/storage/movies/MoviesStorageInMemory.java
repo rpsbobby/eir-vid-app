@@ -4,10 +4,35 @@
  */
 package model.storage.movies;
 
+import java.util.Map;
+import model.models.Movie;
+import model.storage.strategy.SortingStrategy;
+
 /**
  *
- * @author rober
+ * @author Robert Szlufik #2020358
+
  */
-public class MoviesStorageInMemory {
-    
+public class MoviesStorageInMemory  implements MovieStorage{
+
+    private Map<Integer, Movie> movies;
+    private MovieLoaderFromAFile movieLoader;
+    private int lastIndex;
+
+    public MoviesStorageInMemory(SortingStrategy strategy) {
+        this.movieLoader = new MovieLoaderFromAFile(strategy);
+        movies = movieLoader.getAllMovies();
+        lastIndex = movies.size();
+    }
+
+    @Override
+    public Map<Integer, Movie> getAllMovies() {
+        return movies;
+    }
+
+    @Override
+    public Movie getMovie(int id) {
+        return movies.get(id);
+    }
+
 }

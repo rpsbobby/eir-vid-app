@@ -6,8 +6,16 @@ package model.exceptions;
 
 /**
  *
- * @author rober
+ * @author Robert Szlufik #2020358
+
  */
-public class UserStorageException {
-    
+public class UserStorageException extends Exception{
+    public UserStorageException(String message) {
+        super(message);
+    }
+
+    @Override
+    public String getMessage() {
+        return super.getMessage();
+    }
 }

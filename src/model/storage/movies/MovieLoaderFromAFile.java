@@ -10,14 +10,19 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import model.models.Movie;
+import model.storage.strategy.SortingStrategy;
 
 /**
  *
- * @author rober
+* @author Robert Szlufik #2020358
  */
 public class MovieLoaderFromAFile {
 
- 
+    SortingStrategy strategy;
+
+    public MovieLoaderFromAFile(SortingStrategy strategy) {
+        this.strategy = strategy;
+    }
 
     public MovieLoaderFromAFile() {
     }
@@ -44,7 +49,7 @@ public class MovieLoaderFromAFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return movies;
+        return strategy.sort(movies);
     }
 
 
