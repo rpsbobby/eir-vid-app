@@ -6,7 +6,7 @@ package model.storage.database;
 
 /**
  *
- * @author rober
+ * @author Robert Szlufik #2020358
  */
 import java.sql.Connection;
 import java.sql.DriverManager;

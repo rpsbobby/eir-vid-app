@@ -11,21 +11,24 @@ import java.util.HashMap;
 import java.util.Map;
 import model.models.Movie;
 import model.storage.database.DbConnection;
-
+import model.storage.strategy.SortingStrategy;
 
 /**
  *
- * @author rober
+ * @author Robert Szlufik #2020358
  */
 public class DbMovieStorage implements MovieStorage {
 
     private DbConnection dbConnection;
     private Statement statement;
     private Map<Integer, Movie> movies;
+    private SortingStrategy strategy;
 
-    public DbMovieStorage(DbConnection dbConnection) {
+    public DbMovieStorage(DbConnection dbConnection, SortingStrategy strategy) {
         this.dbConnection = dbConnection;
         this.statement = dbConnection.getStatement();
+        this.strategy = strategy;
+
     }
 
     @Override
@@ -37,7 +40,7 @@ public class DbMovieStorage implements MovieStorage {
                 movies.put(Integer.parseInt(resultSet.getString("idmovies")), new Movie(resultSet.getString("title"),
                         Double.parseDouble(resultSet.getString("price"))));
             }
-            return movies;
+            return strategy.sort(movies);
         } catch (SQLException e) {
             return null;
         }
@@ -45,6 +48,6 @@ public class DbMovieStorage implements MovieStorage {
 
     @Override
     public Movie getMovie(int id) {
-      return movies.get(id);
+        return movies.get(id);
     }
 }

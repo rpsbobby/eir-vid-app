@@ -12,8 +12,7 @@ import model.models.User;
 import model.storage.database.DbConnection;
 
 /**
- *
- * @author rober
+ * * @author Robert Szlufik #2020358
  */
 public class DbUserStorage implements UserStorage {
 

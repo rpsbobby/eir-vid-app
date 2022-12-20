@@ -16,6 +16,7 @@ import model.storage.users.UserStorage;
 import java.sql.Statement;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
+import model.storage.strategy.SortByPrice;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -23,14 +24,14 @@ import org.junit.Test;
 
 /**
  *
- * @author rober
+ * @author Robert Szlufik #2020358
  */
 public class DatabaseTest {
 
     private DbConnection dbConnection = new DbConnection();
     private Connection connection = dbConnection.getConnection();
     private UserStorage userStorage = new DbUserStorage(dbConnection);
-    private MovieStorage movieStorage = new DbMovieStorage(dbConnection);
+    private MovieStorage movieStorage = new DbMovieStorage(dbConnection, new SortByPrice());
     
     
     // test will be run in alphabetical order hence a_,b_,c_ in front of methiod name 
@@ -61,6 +62,7 @@ public class DatabaseTest {
     }
 
     @Test
+    @Ignore
     @Description("Should throw an error when registering user")
     public void d_shouldNotRegisterUser() {
         try {
@@ -86,7 +88,7 @@ public class DatabaseTest {
         try {
             userStorage.logIn("test", "test2");
         } catch (UserStorageException e) {
-            System.out.println(e.getMessage());
+            assertNotNull(e);
         }
     }
 
@@ -104,7 +106,7 @@ public class DatabaseTest {
     @Description("Should return a single movie")
     public void h_shouldReturnMovie() {
         try {
-            assertNotNull(movieStorage.getMovie(1));
+            assertNotNull(movieStorage.getMovie(0));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

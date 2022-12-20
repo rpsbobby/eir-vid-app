@@ -9,7 +9,7 @@ import model.models.Movie;
 
 /**
  *
- * @author rober
+ * @author Robert Szlufik #2020358
  */
 public interface SortingStrategy {
 

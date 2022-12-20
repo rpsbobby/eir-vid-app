@@ -15,7 +15,7 @@ import org.junit.Test;
 
 /**
  *
- * @author rober
+ * @author Robert Szlufik #2020358
  */
 public class UserTest {
     
