@@ -7,7 +7,7 @@ package main;
 
 /**
  *
- * @author fabio Teixeira Ramos
+ * @author fabio Teixeira Ramos ID = 2020367
  */
 public enum State {
     LOG_IN,
