@@ -11,7 +11,7 @@ import main.State;
 
 /**
  *
- * @author fabio
+ * @author fabio Teixeira Ramos ID = 2020367
  */
 public interface ViewState {
 
