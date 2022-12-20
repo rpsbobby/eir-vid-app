@@ -4,6 +4,7 @@ import controller.exceptions.IncorrectUserStateException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import model.exceptions.MovieAlreadyRentedException;
 import model.exceptions.UserStorageException;
 import model.models.Movie;
 import model.models.User;
@@ -58,7 +59,4 @@ public abstract class Controller {
     public abstract List<Movie> getCurrentlyRentedMovies() throws IncorrectUserStateException;
 
     public abstract boolean logOut() throws IncorrectUserStateException;
-
-
 }
-
