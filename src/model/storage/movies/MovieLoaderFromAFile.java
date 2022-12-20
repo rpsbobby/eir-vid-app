@@ -34,7 +34,7 @@ public class MovieLoaderFromAFile {
             String entry;
             String[] info;
 
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("src".concat("\\").concat("cct").concat("\\").concat("Movie_Metadata_Edited.csv")));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("src".concat("\\").concat("Movie_Metadata_Edited.csv")));
             // skip first line
             entry = bufferedReader.readLine();
             while((entry = bufferedReader.readLine() )!= null) {
