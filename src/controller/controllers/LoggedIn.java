@@ -54,4 +54,3 @@ public class LoggedIn extends Controller {
         return false;
     }
 }
-
